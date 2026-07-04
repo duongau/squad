@@ -61,6 +61,17 @@ export interface ModelInfo {
 export const MODEL_CATALOG: ModelInfo[] = [
   // Premium tier - highest quality, slowest, most expensive
   {
+    id: 'claude-opus-4.8',
+    tier: 'premium',
+    provider: 'anthropic',
+    family: 'claude',
+    vision: true,
+    useCases: ['architecture proposals', 'security audits', 'complex design'],
+    cost: 10,
+    speed: 3,
+    pricing: { inputPerToken: 0.000015, outputPerToken: 0.000075 },
+  },
+  {
     id: 'claude-opus-4.6',
     tier: 'premium',
     provider: 'anthropic',
@@ -95,6 +106,17 @@ export const MODEL_CATALOG: ModelInfo[] = [
   },
   
   // Standard tier - balanced quality, speed, cost
+  {
+    id: 'claude-sonnet-5',
+    tier: 'standard',
+    provider: 'anthropic',
+    family: 'claude',
+    vision: true,
+    useCases: ['code generation', 'test writing', 'refactoring', 'prompt engineering'],
+    cost: 5,
+    speed: 7,
+    pricing: { inputPerToken: 0.000003, outputPerToken: 0.000015 },
+  },
   {
     id: 'claude-sonnet-4.6',
     tier: 'standard',
@@ -208,6 +230,16 @@ export const MODEL_CATALOG: ModelInfo[] = [
     pricing: { inputPerToken: 0.0000025, outputPerToken: 0.00001 },
   },
   {
+    id: 'gemini-3.1-pro-preview',
+    tier: 'standard',
+    provider: 'google',
+    family: 'gemini',
+    useCases: ['code reviews', 'second opinion', 'diversity'],
+    cost: 5,
+    speed: 7,
+    pricing: { inputPerToken: 0.00000125, outputPerToken: 0.00001 },
+  },
+  {
     id: 'gemini-3-pro-preview',
     tier: 'standard',
     provider: 'google',
@@ -266,7 +298,7 @@ export const MODEL_CATALOG: ModelInfo[] = [
  */
 export const DEFAULT_FALLBACK_CHAINS: Record<ModelTier, ModelId[]> = {
   premium: ['claude-opus-4.6', 'claude-opus-4.6-fast', 'claude-opus-4.5', 'claude-sonnet-4.6'],
-  standard: ['claude-sonnet-4.6', 'gpt-5.4', 'claude-sonnet-4.5', 'gpt-5.3-codex', 'claude-sonnet-4', 'gpt-5.2'],
+  standard: ['claude-sonnet-4.6', 'claude-sonnet-5', 'gpt-5.4', 'claude-sonnet-4.5', 'gpt-5.3-codex', 'claude-sonnet-4', 'gpt-5.2'],
   fast: ['claude-haiku-4.5', 'gpt-5.1-codex-mini', 'gpt-4.1', 'gpt-5-mini']
 };
 
